@@ -1,28 +1,30 @@
-import $ from 'jquery';
 import * as _ from 'lodash';
-import * as faker from 'faker';
-import StringFilters from '../constants/StringFilters';
 
 export class EightController {
-    constructor($state, $interval) {
-        this.input = Array.from({
-            length: 3
-        }, () => "");
+    constructor() {
+        this.input = _.fill(Array(3), '');
         this.selectedInput = 0;
     }
 
-    handleChange($event, $index) {
-        if ($event.target.value.length === 5 && !/Backspace/.test($event.code) &&
-            !/Arrow/.test($event.code) && !/Tab/.test($event.code))
-            $event.preventDefault();
-        if ($event.target.value.length === 5 && $event.code != "Backspace" ||
-            $event.target.value.length === 5 && $event.code == "ArrowRight")
-            if (this.selectedInput !== 2)
-                this.selectedInput++;
-        if ($event.target.value.length === 0 && $event.code == "Backspace" ||
-            $event.target.value.length === 0 && $event.code == "ArrowLeft")
-            if (this.selectedInput !== 0)
-                this.selectedInput--;
+    handleChange($event) {
+        const valueLength = $event.target.value.length;
+        const containsBackspace = /Backspace/.test($event.code);
+        const containsArrow = /Arrow/.test($event.code);
+        const containsTab = /Tab/.test($event.code);
+        const isBackspace = $event.code === 'Backspace';
+        const isArrowRight = $event.code === 'ArrowRight';
+        const isArrowLeft = $event.code === 'ArrowLeft';
+        const isFirstInput = this.selectedInput === 0;
+        const isLastInput = this.selectedInput === 2;
+
+        if (valueLength === 5) {
+            if (!containsBackspace && !containsArrow && !containsTab) $event.preventDefault();
+            if ((!isBackspace || isArrowRight) && !isLastInput) this.selectedInput++;
+        }
+
+        if (valueLength === 0 && (isBackspace || isArrowLeft) && !isFirstInput) {
+            this.selectedInput--;
+        }
     }
 }
 
