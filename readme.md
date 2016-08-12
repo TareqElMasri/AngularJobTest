@@ -8,7 +8,7 @@
 ### <a name="installation"></a>Installation
 
 ````
-    npm install
+npm install
 ````
 
 ---
@@ -16,7 +16,7 @@
 ### <a name="development"></a>Development
 
 ````
-    npm run serve
+npm run serve
 ````
 
 ---
@@ -24,7 +24,7 @@
 ### <a name="production"></a>Production
 
 ````
-    npm run build
+npm run build
 ````
 
 ---
