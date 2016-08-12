@@ -1,11 +1,11 @@
 import $ from 'jquery';
+import * as _ from 'lodash';
 import angular from 'angular';
 
 import './index.sass';
 import 'todomvc-app-css/index.css';
 import './assets/css/navigation.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import PageTransitions from 'pagetransitions/pagetransitions';
 
 import StringFilters from "./app/constants/StringFilters";
 
@@ -31,13 +31,20 @@ angular
     .module('app', modulesConfig)
     .config(routesConfig)
     .run(runConfig)
-    .component('two', Two)
-    .component('twohalf', TwoHalf)
-    .component('four', Four)
-    .component('five', Five)
-    .component('six', Six)
-    .component('seven', Seven)
-    .component('eight', Eight)
-    .component('home', Home)
-    .component('app', App)
 ;
+
+const components = [
+    ['two', Two],
+    ['twohalf', TwoHalf],
+    ['four', Four],
+    ['five', Five],
+    ['six', Six],
+    ['seven', Seven],
+    ['eight', Eight],
+    ['home', Home],
+    ['app', App]
+];
+
+for (var component of components) {
+    angular.module('app').component(component[0], component[1]);
+}

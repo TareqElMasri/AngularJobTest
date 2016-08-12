@@ -15,10 +15,9 @@ export class SevenController {
         if (!/Digit/.test($event.code) && !/Arrow/.test($event.code) &&
             !/Backspace/.test($event.code) && !/Tab/.test($event.code))
             $event.preventDefault();
-        if ($event.code == "ArrowUp" || $event.code == "ArrowRight")
+        if ($event.code == "ArrowUp")
             $event.target.value = parseInt($event.target.value) + 1;
-        if ($event.code == "ArrowDown" && $event.target.value !== "0" ||
-            $event.code == "ArrowLeft" && $event.target.value !== "0")
+        if ($event.code == "ArrowDown" && $event.target.value !== "0")
             $event.target.value = parseInt($event.target.value) - 1;
     }
 

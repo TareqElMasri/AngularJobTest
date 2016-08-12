@@ -11,7 +11,7 @@ if (window.Intl) {
         Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
     }
 } else {
-    global.Intl = require('intl');
+    window.Intl = require('intl');
 }
 
 if (!window.localStorage) {
