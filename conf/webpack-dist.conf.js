@@ -44,6 +44,7 @@ module.exports = {
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {unused: true, dead_code: true} // eslint-disable-line camelcase
     // }),
+    // Uglify causes issues in console that craches the application
     new SplitByPathPlugin([{
       name: 'vendor',
       path: path.join(__dirname, '../node_modules')
