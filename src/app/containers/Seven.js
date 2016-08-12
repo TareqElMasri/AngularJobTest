@@ -1,30 +1,36 @@
 import $ from 'jquery';
 import * as _ from 'lodash';
 import * as faker from 'faker';
-import StringFilters from '../constants/StringFilters';
+import InputFilters from '../constants/InputFilters';
 
 export class SevenController {
     constructor($state, $interval) {
-        this.input = Array.from({
-            length: 3
-        }, () => 0);
         this.result = 0;
+        this.selectedInput = 0;
+        this.input = _.fill(Array(3), 0);
     }
 
     handleKeypress($event) {
-        if (!/Digit/.test($event.code) && !/Arrow/.test($event.code) &&
-            !/Backspace/.test($event.code) && !/Tab/.test($event.code))
+        const value = parseInt($event.target.value);
+        const containsDigit = /Digit/.test($event.code);
+        const containsBackspace = /Backspace/.test($event.code);
+        const containsArrow = /Arrow/.test($event.code);
+        const containsTab = /Tab/.test($event.code);
+        const isArrowUp = $event.code === 'ArrowUp';
+        const isArrowDown = $event.code === 'ArrowDown';
+
+        if (!containsDigit && !containsArrow && !containsTab && (containsBackspace && value === 0))
             $event.preventDefault();
-        if ($event.code == "ArrowUp")
-            $event.target.value = parseInt($event.target.value) + 1;
-        if ($event.code == "ArrowDown" && $event.target.value !== "0")
-            $event.target.value = parseInt($event.target.value) - 1;
+        if (isArrowUp)
+            $event.target.value = value + 1;
+        if (isArrowDown && value !== 0)
+            $event.target.value = value - 1;
     }
 
     handleChange($index) {
         if ($index == this.input.length) {
             let result = _.sum(this.input);
-            for (var item in this.input) {
+            for (let item in this.input) {
                 this.input[item] = Math.floor(this.result * this.input[item] / result);
             }
         }

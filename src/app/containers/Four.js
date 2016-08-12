@@ -1,12 +1,11 @@
+import * as _ from 'lodash';
 import * as faker from 'faker';
-import StringFilters from '../constants/StringFilters';
+import InputFilters from '../constants/InputFilters';
 
 export class FourController {
     constructor($filter) {
-        this.data = Array.from({
-            length: 50
-        }, () => {});
-        for (var item in this.data) {
+        this.data = _.fill(Array(50), {});
+        for (let item in this.data) {
             this.data[item] = {
                 name: faker.name.findName(),
                 email: faker.internet.email(),

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import * as faker from 'faker';
-import StringFilters from '../constants/StringFilters';
+import InputFilters from '../constants/InputFilters';
 
 export class FiveController {
     constructor($state, $interval) {
@@ -14,12 +14,15 @@ export class FiveController {
     }
 
     mobileFormat($event) {
+        const containsDigit = /Digit/.test($event.code);
+        const isBackspace = $event.code === 'Backspace';
+
         $event.preventDefault();
-        if (!/Digit/.test($event.code) && $event.code != "Backspace")
-            return;
-        this.strip = this.input.allReplace("invalid");
-        this.strip = $event.key != "Backspace" ? this.strip + $event.key : this.strip.substr(0, this.strip.length - 1);
-        this.input = `${this.strip.length > 0 ? "(" + this.strip.range(0,2) + ")" : ""}${this.strip.length > 2 ? " " + this.strip.range(3,5) : ""}${this.strip.length > 5 ? "-" + this.strip.range(6,9) : ""}`;
+        if (containsDigit || isBackspace) {
+            this.strip = this.input.allReplace("invalid");
+            this.strip = $event.key != "Backspace" ? this.strip + $event.key : this.strip.substr(0, this.strip.length - 1);
+            this.input = `${this.strip.length > 0 ? "(" + this.strip.range(0,2) + ")" : ""}${this.strip.length > 2 ? " " + this.strip.range(3,5) : ""}${this.strip.length > 5 ? "-" + this.strip.range(6,9) : ""}`;
+        }
     }
 
     onInputFocus($event) {

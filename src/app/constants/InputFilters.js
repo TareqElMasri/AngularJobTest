@@ -50,20 +50,23 @@ Date.prototype.dateFormat = function(format = "yyyy-mm-dd") {
 };
 
 $.fn.getCursorPosition = function() {
-    var input = this.get(0);
-    if (!input) return;
-    if ('selectionStart' in input) {
-        return input.selectionStart;
+    var $el = $(this)[0];
+    if (!$el || $el.type == 'number') return 0;
+    if ('selectionStart' in $el) {
+        return $el.selectionStart;
     } else if (document.selection) {
-        input.focus();
+        $el.focus();
         var sel = document.selection.createRange();
         var selLen = document.selection.createRange().text.length;
-        sel.moveStart('character', -input.value.length);
+        sel.moveStart('character', -$el.value.length);
         return sel.text.length - selLen;
     }
 };
 
 $.fn.setCursorPosition = function(pos) {
     var $el = $(this)[0];
-    $el.setSelectionRange(pos, pos);
+    if (!$el || $el.type == 'number') return 0;
+    if ('selectionStart' in $el) {
+        $el.setSelectionRange(pos, pos);
+    }
 };

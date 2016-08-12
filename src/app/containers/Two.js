@@ -10,11 +10,12 @@ export class TwoController {
 
     handleSubmit($event) {
         localStorage.setItem("input", this.input);
-        if ($event.key == "Enter")
+        if ($event.key == "Enter") {
             this.$state.go('app', {
                 controller: "twohalf",
                 input: this.input
             });
+        }
     }
 }
 

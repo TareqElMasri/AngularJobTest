@@ -7,7 +7,8 @@ import 'todomvc-app-css/index.css';
 import './assets/css/navigation.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import StringFilters from "./app/constants/StringFilters";
+import {focusWithArrow} from './app/constants/Direcrives';
+import InputFilters from "./app/constants/InputFilters";
 
 import {Home} from './app/containers/Home';
 import {Two} from './app/containers/Two';
@@ -33,6 +34,14 @@ angular
     .run(runConfig)
 ;
 
+const directives = [
+    ['focusWithArrow', focusWithArrow]
+];
+
+for (const directive of directives) {
+    angular.module('app').directive(directive[0], directive[1]);
+}
+
 const components = [
     ['two', Two],
     ['twohalf', TwoHalf],
@@ -45,6 +54,6 @@ const components = [
     ['app', App]
 ];
 
-for (var component of components) {
+for (const component of components) {
     angular.module('app').component(component[0], component[1]);
 }
