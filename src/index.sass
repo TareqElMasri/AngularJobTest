@@ -1,0 +1,118 @@
+@import bourbon
+
+body
+    margin: auto !important
+    max-width: 820px !important
+    padding-top: 30px !important
+    background: #f5f5f5 !important
+
+.page
+    top: 0
+    width: 100%
+    background: #fff
+    position: absolute
+    text-align: center
+    margin-bottom: 50px
+
+@keyframes slideOutLeft
+    to
+        opacity: 0
+        transform: translateX(-100%)
+
+@keyframes scaleUp
+    from
+        opacity: 0.3
+        transform: scale(0.8)
+
+.ng-enter
+    z-index: 8888
+    animation: scaleUp 0.3s both ease-in .2s
+.ng-leave
+    z-index: 9999
+    animation: slideOutLeft 0.3s both ease-in
+
+.buttonInput
+    text-align: left
+    transition: .3s all
+    outline: none !important
+    box-shadow: none !important
+    padding-left: 40px !important
+    border: 1px solid #e6e6e6 !important
+    &:hover
+        background: #efefef
+
+.textInput
+    box-shadow: none !important
+    border: 1px solid #e6e6e6 !important
+    @include placeholder
+        color: #ddd
+
+.secindInput
+    float: left
+    padding-left: 16px
+    display: inline-block
+    width: calc(50% - 1px) !important
+    border-left: 1px solid #e6e6e6 !important
+
+.thirdInput
+    float: left
+    padding-left: 16px
+    text-align: center
+    display: inline-block
+    width: calc(33.33% - .1px) !important
+    border-left: 1px solid #e6e6e6 !important
+
+.fourthInput
+    float: left
+    padding-left: 16px
+    text-align: center
+    display: inline-block
+    width: calc(25% - .1px) !important
+    border-left: 1px solid #e6e6e6 !important
+
+.header, .footer
+    @include clearfix
+    box-sizing: content-box
+    &.footer:before
+        right: 1px
+        bottom: 0
+        left: 1px
+        height: 42px
+        overflow: hidden
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2)
+
+.table
+    margin-bottom: 0 !important
+    tr
+        transition: .3s all
+        &:hover
+            background: #ededed
+    td, th
+        transition: .3s all
+        &:hover
+            background: #dfdfdf
+
+.not-stylable, .not-stylable *
+    background: #fff !important
+
+.clickable
+    cursor: pointer
+
+.st-sort-ascent:before
+    content: '\25B2'
+
+.st-sort-descent:before
+    content: '\25BC'
+
+.pagination
+    width: 100%
+    margin: auto
+    text-align: center
+    li
+        float: none
+        clear: none
+        margin: auto 10px
+        display: inline-block
+        a
+            color: #444
+            text-decoration: none

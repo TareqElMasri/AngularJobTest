@@ -1,0 +1,6 @@
+<header class="header">
+    <button ng-repeat="nav in $ctrl.navigations" ui-sref="app({controller: nav.controller})" class="buttonInput new-todo">{{nav.title}}</button>
+</header>
+<footer class="footer">
+    Created by <a href="mailto:tareq@masri.me">Tareq El-Masri</a>.
+</footer>

@@ -1,0 +1,16 @@
+<header class="header">
+    <input class="textInput new-todo" ng-model="$ctrl.input" ng-keydown="$ctrl.mobileFormat($event)" ng-click="$ctrl.onInputFocus($event)" placeholder="{{$ctrl.ptext.substr(0, 26) + $ctrl.placeholder}}" type="text">
+</header>
+<footer class="footer">
+    Phone number formating.
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'four'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Four</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'six'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Six</strong></h3>
+    </a>
+</nav>

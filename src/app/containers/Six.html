@@ -1,0 +1,16 @@
+<header class="header">
+    <input class="textInput new-todo" ng-model="$ctrl.input" ng-keypress="$ctrl.priceFormat($event)" ng-click="$ctrl.onInputFocus($event)" placeholder="{{$ctrl.ptext.substr(0, 19) + $ctrl.placeholder}}" type="text">
+</header>
+<footer class="footer">
+    Price formating.
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'five'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Five</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'seven'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Seven</strong></h3>
+    </a>
+</nav>

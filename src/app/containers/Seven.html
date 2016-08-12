@@ -1,0 +1,19 @@
+<header class="header">
+    <input class="textInput fourthInput new-todo" ng-model="$ctrl.input[0]" ng-keydown="$ctrl.handleKeypress($event)" ng-change="$ctrl.handleChange(0)" placeholder="1st Field" min="0" type="number">
+    <input class="textInput fourthInput new-todo" ng-model="$ctrl.input[1]" ng-keydown="$ctrl.handleKeypress($event)" ng-change="$ctrl.handleChange(1)" placeholder="2nd Field" min="0" type="number">
+    <input class="textInput fourthInput new-todo" ng-model="$ctrl.input[2]" ng-keydown="$ctrl.handleKeypress($event)" ng-change="$ctrl.handleChange(2)" placeholder="3rd Field" min="0" type="number">
+    <input class="textInput fourthInput new-todo" ng-model="$ctrl.result"   ng-keydown="$ctrl.handleKeypress($event)" ng-change="$ctrl.handleChange(3)" placeholder="4th Field" min="0" type="number">
+</header>
+<footer class="footer">
+    Three number inputs that sum up into an additional field.
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'six'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Six</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'eight'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Eight</strong></h3>
+    </a>
+</nav>

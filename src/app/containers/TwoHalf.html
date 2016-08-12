@@ -1,0 +1,24 @@
+<header class="header">
+    <input class="textInput new-todo" ng-model="$ctrl.input[$ctrl.selectedFilter]" type="text" disabled>
+</header>
+<footer class="footer">
+    <span class="todo-count">
+      <strong>Data Source: </strong>
+    </span>
+    <ul class="filters">
+        <li key="filter">
+            <a href="#" ng-click="$ctrl.handleChange(0)" ng-class="{selected: $ctrl.selectedFilter == 0}">URL Param</a>
+            <a href="#" ng-click="$ctrl.handleChange(1)" ng-class="{selected: $ctrl.selectedFilter == 1}">Local Storage</a>
+        </li>
+    </ul>
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'two'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Two</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'four'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Four</strong></h3>
+    </a>
+</nav>

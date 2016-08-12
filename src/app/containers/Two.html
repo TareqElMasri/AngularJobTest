@@ -1,0 +1,16 @@
+<header class="header">
+    <input class="textInput new-todo" ng-model="$ctrl.input" ng-keypress="$ctrl.handleSubmit($event)" placeholder="{{$ctrl.placeholder}}" type="text">
+</header>
+<footer class="footer">
+    Passing data between page controllers.
+</footer>
+<nav class="navigation">
+    <a ui-sref="home" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Home</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'four'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Four</strong></h3>
+    </a>
+</nav>

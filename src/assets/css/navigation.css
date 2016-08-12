@@ -1,0 +1,125 @@
+.navigation {
+    position: absolute;
+    width: 140%;
+    left: -20%;
+    top: 50%;
+}
+.navigation a {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    display: block;
+    outline: none;
+    text-align: left;
+    z-index: 1000;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.navigation a[prev=''] {
+    left: 0;
+}
+.navigation a[next=''] {
+    right: 0;
+}
+.navigation .icon-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.navigation a::before, .navigation a::after, .navigation .icon-wrap::before, .navigation .icon-wrap::after {
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 50%;
+    background: #566475;
+    content: '';
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    outline: 1px solid transparent;
+    /* for FF */
+}
+.navigation .icon-wrap::before, .navigation .icon-wrap::after {
+    z-index: 100;
+    height: 0;
+    background: #fff;
+    -webkit-transition: height 0.3s, -webkit-transform 0.3s;
+    transition: height 0.3s, transform 0.3s;
+}
+.navigation a::before, .navigation .icon-wrap::before {
+    top: 50%;
+    -webkit-transform: translateX(-50%) rotate(-135deg);
+    transform: translateX(-50%) rotate(-135deg);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+.navigation a[next='']::before, .navigation a[next=''] .icon-wrap::before {
+    -webkit-transform: translateX(-50%) rotate(135deg);
+    transform: translateX(-50%) rotate(135deg);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+}
+.navigation a::after, .navigation .icon-wrap::after {
+    top: 50%;
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-50%) rotate(-45deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.navigation a[next='']::after, .navigation a[next=''] .icon-wrap::after {
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+}
+.navigation h3 {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2em;
+    opacity: 0;
+    text-shadow: 0px 0px 1px rgba(86, 100, 117, 0.4);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.navigation a[prev=''] h3 {
+    left: 80%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+.navigation a[next=''] h3 {
+    right: 80%;
+    text-align: right;
+    -webkit-transform: translateY(-50%) translateX(50%);
+    transform: translateY(-50%) translateX(50%);
+}
+.navigation a:hover .icon-wrap::before, .navigation a:hover .icon-wrap::after {
+    height: 50%;
+}
+.navigation a:hover::before, .navigation a:hover .icon-wrap::before {
+    -webkit-transform: translateX(-50%) rotate(-125deg);
+    transform: translateX(-50%) rotate(-125deg);
+}
+.navigation a[next='']:hover::before, .navigation a[next='']:hover .icon-wrap::before {
+    -webkit-transform: translateX(-50%) rotate(125deg);
+    transform: translateX(-50%) rotate(125deg);
+}
+.navigation a:hover::after, .navigation a:hover .icon-wrap::after {
+    -webkit-transform: translateX(-50%) rotate(-55deg);
+    transform: translateX(-50%) rotate(-55deg);
+}
+.navigation a[next='']:hover::after, .navigation a[next='']:hover .icon-wrap::after {
+    -webkit-transform: translateX(-50%) rotate(55deg);
+    transform: translateX(-50%) rotate(55deg);
+}
+.navigation a:hover h3 {
+    opacity: 1;
+    -webkit-transform: translateY(-50%) translateX(0);
+    transform: translateY(-50%) translateX(0);
+}

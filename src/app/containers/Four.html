@@ -1,0 +1,43 @@
+<header class="header">
+    <table st-table="$ctrl.data" class="table table-bordered">
+        <thead>
+            <tr class="not-stylable">
+                <th colspan="5">
+                    <input st-search class="textInput new-todo" placeholder="Search ..." type="text">
+                </th>
+            </tr>
+            <tr>
+                <th class="clickable" st-sort="name">Name</th>
+                <th class="clickable" st-sort="email">Email</th>
+                <th class="clickable" st-sort="date">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in $ctrl.data">
+                <td>{{row.name}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.date}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="text-center">
+                    <div st-pagination st-items-by-page="10" st-displayed-pages="5"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</header>
+<footer class="footer">
+    An array of 50 items.
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'two'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Two</strong></h3>
+    </a>
+    <a ui-sref="app({controller: 'five'})" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Five</strong></h3>
+    </a>
+</nav>

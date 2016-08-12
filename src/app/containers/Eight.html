@@ -1,0 +1,18 @@
+<header class="header">
+    <input class="textInput thirdInput new-todo" focus-if="$ctrl.selectedInput == 0" ng-focus="$ctrl.selectedInput = 0" ng-model="$ctrl.input[0]" ng-keydown="$ctrl.handleChange($event)" placeholder="1st Field" type="text">
+    <input class="textInput thirdInput new-todo" focus-if="$ctrl.selectedInput == 1" ng-focus="$ctrl.selectedInput = 1" ng-model="$ctrl.input[1]" ng-keydown="$ctrl.handleChange($event)" placeholder="2nd Field" type="text">
+    <input class="textInput thirdInput new-todo" focus-if="$ctrl.selectedInput == 2" ng-focus="$ctrl.selectedInput = 2" ng-model="$ctrl.input[2]" ng-keydown="$ctrl.handleChange($event)" placeholder="3rd Field" type="text">
+</header>
+<footer class="footer">
+    Three inputs each with maximum characters.
+</footer>
+<nav class="navigation">
+    <a ui-sref="app({controller: 'seven'})" prev>
+        <span class="icon-wrap"></span>
+        <h3><strong>Seven</strong></h3>
+    </a>
+    <a ui-sref="home" next>
+        <span class="icon-wrap"></span>
+        <h3><strong>Home</strong></h3>
+    </a>
+</nav>
