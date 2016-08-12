@@ -11,11 +11,6 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   module: {
     preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint'
-      }
     ],
 
     loaders: [
@@ -46,9 +41,9 @@ module.exports = {
       template: conf.path.src('index.html'),
       inject: true
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {unused: true, dead_code: true} // eslint-disable-line camelcase
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {unused: true, dead_code: true} // eslint-disable-line camelcase
+    // }),
     new SplitByPathPlugin([{
       name: 'vendor',
       path: path.join(__dirname, '../node_modules')
